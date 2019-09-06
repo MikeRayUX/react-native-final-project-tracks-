@@ -20,7 +20,7 @@ const switchNavigator = createSwitchNavigator({
         TrackDetail: TrackDetailScreen
       }),
       TrackCreate: TrackCreateScreen,
-      Acction: AccountScreen
+      Account: AccountScreen
     })
   });
 
