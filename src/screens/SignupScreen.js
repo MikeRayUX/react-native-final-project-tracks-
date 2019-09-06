@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from 'react-native';
 
 
 const SignupScreen = () => {
-  return <Text styles={{fontSize: 48}}>SignupScreen</Text>
+  return <Text style={{fontSize: 48}}>SignupScreen</Text>
 }
 
 const styles = StyleSheet.create({})
