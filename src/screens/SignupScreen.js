@@ -1,28 +1,28 @@
 import React, { useContext } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { NavigationEvents } from 'react-navigation';
 import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
 
 const SignupScreen = ({ navigation }) => {
-  const { state, signup } = useContext(AuthContext);
+  const { state, signup, clearErrorMessage } = useContext(AuthContext);
 
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
+    <NavigationEvents onWillBlur={() => clearErrorMessage()} />
 
-      <AuthForm
-        headerText='Sign Up For Tracker'
-        errorMessage={state.errorMessage}
-        submitButtonText='Sign Up'
-        onSubmit={signup}
-      />
+    <AuthForm
+      headerText='Sign Up For Tracker'
+      errorMessage={state.errorMessage}
+      submitButtonText='Sign Up'
+      onSubmit={signup}
+    />
 
-      <NavLink 
-        text='Already have an account? Sign in instead!'
-        routeName='Signin'
-      />
-    </View>
-  )
+    <NavLink 
+      text='Already have an account? Sign in instead!'
+      routeName='Signin'
+    />
+  </View>
 }
 
 SignupScreen.navigationOptions = () => {
