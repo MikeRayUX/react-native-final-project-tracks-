@@ -9,7 +9,7 @@ const authReducer = (state, action) => {
       return { ...state, errorMessage: action.payload }
     case ('clear_error_message'):
       return { ...state, errorMessage: '' }
-    case ('signup'):
+    case ('signin'):
       return { errorMessage: '', token: action.payload }
     default:
       return state
@@ -40,7 +40,7 @@ const signup = (dispatch) => {
         password: password
       });
       await AsyncStorage.setItem('token', response.data.token)
-      dispatch({ type: 'singup', payload: response.data.token });
+      dispatch({ type: 'signin', payload: response.data.token });
       navigate('TrackList');
     } catch (err) {
       dispatch({ type: 'add_error', payload: 'Something went wrong with sign up' })
