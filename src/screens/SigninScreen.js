@@ -9,11 +9,11 @@ const SigninScreen = () => {
   const { state, signin, clearErrorMessage } = useContext(AuthContext);
   return <View style={styles.container}>
     <NavigationEvents onWillBlur={() => clearErrorMessage()} />
-    <AuthForm 
+    <AuthForm
       headerText="Sign In To Tracker"
       errorMessage={state.errorMessage}
       submitButtonText='Sign In'
-      onSubmit={() => ""}
+      onSubmit={signin}
     />
 
     <NavLink
